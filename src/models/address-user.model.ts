@@ -1,30 +1,30 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '../config/db.js';
 
-class City extends Model{
-    declare id: number;
-    declare name: string;
-    declare code_name: string;
+class Address extends Model{
+    declare id: string;
+    declare city_id: string;
+    declare address: string;
 }
-City.init(
+
+Address.init(
     {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
-            primaryKey: true,
+            primaryKey: true
         },
-        name: {
-            type: DataTypes.STRING,
+        city_id: {
+            type: DataTypes.UUID,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
-        code_name: {
+        address: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
             validate: {
                 notEmpty: true
             }
@@ -34,4 +34,4 @@ City.init(
     }
 )
 
-export default City;
+export default Address;

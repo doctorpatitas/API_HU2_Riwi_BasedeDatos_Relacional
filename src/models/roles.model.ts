@@ -1,30 +1,22 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '../config/db.js';
 
-class City extends Model{
+class Roles extends Model{
     declare id: number;
-    declare name: string;
-    declare code_name: string;
+    declare roles: 'Coder'|'Tl';
 }
-City.init(
+
+Roles.init(
     {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
-            primaryKey: true,
+            primaryKey: true
         },
-        name: {
-            type: DataTypes.STRING,
+        roles: {
+            type: DataTypes.ENUM('Coder','Tl'),
             allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        },
-        code_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
             validate: {
                 notEmpty: true
             }
@@ -34,4 +26,4 @@ City.init(
     }
 )
 
-export default City;
+export default Roles;
