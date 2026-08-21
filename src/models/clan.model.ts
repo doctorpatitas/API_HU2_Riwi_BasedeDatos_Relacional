@@ -6,6 +6,8 @@ class Clan extends Model{
     declare name: "Golden Gate"|"Centurion"|"Estercita"|"Malecon"
     declare type_route_id: string;
     declare tl_id: string;
+    declare room_id: string;
+    declare schelude_id: string;
 }
 
 Clan.init(

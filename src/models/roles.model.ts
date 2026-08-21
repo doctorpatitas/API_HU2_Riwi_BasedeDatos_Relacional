@@ -4,6 +4,7 @@ import db from '../config/db.js';
 class Roles extends Model{
     declare id: number;
     declare roles: 'Coder'|'Tl';
+    declare permissions_id: string;
 }
 
 Roles.init(
@@ -20,10 +21,14 @@ Roles.init(
             validate: {
                 notEmpty: true
             }
+        },
+        permissions_id: {
+            type: DataTypes. UUID,
+            allowNull: false
         }
     },{
         sequelize: db
     }
 )
 
-export default Roles;
+export default Roles; // Esto no esta terminado
