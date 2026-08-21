@@ -4,7 +4,7 @@ import db from '../config/db.js';
 class Schelude extends Model{
     declare id: string;
     declare name: string;
-    declare star_time: string;
+    declare start_time: string;
     declare end_time: string;
 }
 

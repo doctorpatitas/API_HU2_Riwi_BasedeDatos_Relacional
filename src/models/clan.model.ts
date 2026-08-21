@@ -4,7 +4,7 @@ import db from '../config/db.js';
 class Clan extends Model{
     declare id: number;
     declare name: "Golden Gate"|"Centurion"|"Estercita"|"Malecon"
-    declare type_route_id: string;
+    declare course_id: string;
     declare tl_id: string;
     declare room_id: string;
     declare schelude_id: string;
@@ -25,19 +25,22 @@ Clan.init(
                 notEmpty: true
             }
         },
-        type_route_id: {
+        course_id: {
             type: DataTypes.UUID,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+            allowNull: false
         },
         tl_id: {
             type: DataTypes.UUID,
             allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+            unique: true
+        },
+        room_id: {
+            type: DataTypes.UUID,
+            allowNull: false
+        },
+        schelude_id: {
+            type: DataTypes.UUID,
+            allowNull: false
         }
     },{
         sequelize: db

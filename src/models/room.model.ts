@@ -32,12 +32,11 @@ Room.init(
         },
         campus_id: {
             type: DataTypes.UUID,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+            allowNull: false
         }
     },{
         sequelize: db
     }
 )
+
+export default Room;

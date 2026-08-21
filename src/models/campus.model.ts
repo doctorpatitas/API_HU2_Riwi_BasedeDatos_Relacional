@@ -25,10 +25,7 @@ Campus.init(
         },
         city_id: {
             type: DataTypes.UUID,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+            allowNull: false
         },
         address: {
             type: DataTypes.STRING,
