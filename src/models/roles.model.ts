@@ -3,7 +3,7 @@ import db from '../config/db.js';
 
 class Roles extends Model{
     declare id: number;
-    declare roles: 'Coder'|'Tl';
+    declare roles: 'Coder'|'Tl'|'admin';
     declare permissions_id: string;
 }
 
@@ -16,7 +16,7 @@ Roles.init(
             primaryKey: true
         },
         roles: {
-            type: DataTypes.ENUM('Coder','Tl'),
+            type: DataTypes.ENUM('Coder','Tl','admin'),
             allowNull: false,
             validate: {
                 notEmpty: true

@@ -4,7 +4,7 @@ import db from '../config/db.js';
 class TypeIdentification extends Model{
     declare id: string;
     declare name: string;
-    declare code: string;
+    declare code_name: string;
 }
 
 TypeIdentification.init(
@@ -22,7 +22,7 @@ TypeIdentification.init(
                 notEmpty: true
             }
         },
-        code: {
+        code_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

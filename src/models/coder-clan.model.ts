@@ -12,11 +12,13 @@ CoderClan.init(
     {
         clan_id: {
             type: DataTypes.UUID,
-            allowNull: false
+            allowNull: false,
+            primaryKey: true
         },
         coder_id: {
             type: DataTypes.UUID,
             allowNull: false,
+            primaryKey: true
         },
         start_date: {
             type: DataTypes.DATE,
@@ -24,7 +26,7 @@ CoderClan.init(
         },
         end_date: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: true
         }
     },{
         sequelize: db
