@@ -1,21 +1,18 @@
-import { body, validationResult, type ValidationChain } from 'express-validator'
-import { type Request, type Response, type NextFunction } from 'express';
+import { body, type ValidationChain } from 'express-validator';
+import City from '../models/city.model.js';
+
 
 export const cityValidator: ValidationChain[] = [
     body('name')
         .notEmpty().withMessage("The name is required")
-        .isString().withMessage("The should be a text"),
+        .isString().withMessage("The name should be a text"),
     body('code_name')
         .notEmpty().withMessage("The code_name is required")
         .isString().withMessage("The code_name should be a text")
+        .custom(async (value) => {
+            const codeNameCityExist = await City.findOne({where: {code_name: value}});
+            if(codeNameCityExist){
+                throw new Error("This code is already exits")
+            }
+        })
 ];
-
-export function handleValidationErrors(req: Request, res: Response, next:NextFunction){
-    const errors = validationResult(req);
-
-    if(!errors.isEmpty()){
-        return res.status(400).json({errors: errors.array()});
-    }
-
-    next();
-}

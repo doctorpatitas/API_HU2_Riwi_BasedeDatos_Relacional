@@ -16,10 +16,12 @@ Permissions.init(
         },
         permission: {
             type: DataTypes.ENUM('viewer','admin'),
-            defaultValue: 'viewer'
+            defaultValue: 'viewer',
+            unique: true
         }
     },{
-        sequelize: db
+        sequelize: db,
+        paranoid: true
     }
 )
 
