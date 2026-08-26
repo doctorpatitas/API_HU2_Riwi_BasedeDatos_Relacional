@@ -30,7 +30,8 @@ TypeIdentification.init(
             }
         }
     },{
-        sequelize: db
+        sequelize: db,
+        paranoid: true
     }
 )
 

@@ -5,10 +5,10 @@ import Permissions from '../models/permissions.model.js';
 // Crear un permiso nuevo (Esto nunca lo usare, es solamente para practicar)
 export const permissionsPostController = { createPermissions: async(req: Request, res: Response) => {
     try {
-        const {permissions} = req.body;
+        const {permission} = req.body;
 
         const permissionsCreate = await Permissions.create({
-            permissions
+            permission
         })
 
         res.status(201).json({message: "The permission has been successfully created", permissionsCreate})
@@ -87,7 +87,7 @@ export const permissionsPutController = { updatePermissions: async(req: Request,
 // Elimina un permiso buscado por su id
 export const permissionsDeleteController = { deletePermissions: async(req: Request, res: Response) => {
         try {
-        const {id} = req.body;
+        const {id} = req.params;
 
         if(!id || typeof id !== 'string'){
             return res.status(400).json({message: "Invalid id"});

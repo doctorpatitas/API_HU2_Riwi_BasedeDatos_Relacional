@@ -6,6 +6,7 @@ class City extends Model{
     declare name: string;
     declare code_name: string;
 }
+
 City.init(
     {
         id: {

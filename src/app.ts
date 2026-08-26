@@ -15,7 +15,7 @@ async function startServer() {
         await db.sync({alter: true});
         console.log("DB Sincronizada")
     } catch (error) {
-        console.log("Error inesperado en la base de datos", error);
+        console.log("Unexpected data base error", error);
     }
 
     app.listen(PORT, () => {

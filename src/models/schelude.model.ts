@@ -38,7 +38,8 @@ Schelude.init(
             }
         }
     },{
-        sequelize: db
+        sequelize: db,
+        paranoid: true
     }
 )
 

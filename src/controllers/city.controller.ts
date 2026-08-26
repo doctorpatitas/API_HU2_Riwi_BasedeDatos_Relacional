@@ -44,6 +44,10 @@ export const cityGetByIdController = { getCityById: async(req: Request, res: Res
 
         const city = await City.findByPk(id);
 
+        if(!city){
+            return res.status(404).json({message: "City not found"})
+        }
+
         res.status(200).json({message: "City found successfully", city})
     } catch (error) {
         console.log(error);

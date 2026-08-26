@@ -8,7 +8,7 @@ import CoderClan from './coder-clan.model.js';
 import Address from './address-user.model.js';
 import Identification from './identification.model.js';
 import Roles from './roles.model.js';
-import TypeIdentification from './type-identification.js';
+import TypeIdentification from './type-identification.model.js';
 import City from './city.model.js';
 
 /////////////////////////////////////////////////////////////////
