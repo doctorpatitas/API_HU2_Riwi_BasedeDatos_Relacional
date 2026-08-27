@@ -5,7 +5,7 @@ import { type Request, type Response, type NextFunction } from 'express';
 export const validatorParamUUID: ValidationChain[] = [
     param('id')
         .isUUID().withMessage("The ID field must be a UUID")
-]
+];
 
 // Valida el UUID que va en el body 
 export function validatorBodyUUID(fieldName: string): ValidationChain {

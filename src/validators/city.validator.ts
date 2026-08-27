@@ -6,4 +6,4 @@ export const cityValidator: ValidationChain[] = [
         .isString().withMessage("The name should be a text"),
     body('code_name')
         .isIn(['BAQ','MDE']).withMessage("The code name should be BAQ or MDE")
-]
+];
