@@ -3,7 +3,7 @@ import db from '../config/db.js';
 
 class Courses extends Model{
     declare id: number;
-    declare name: string;
+    declare name: 'Node with Nest.js'|'IA'|'Java';
 }
 
 Courses.init(
@@ -15,7 +15,7 @@ Courses.init(
             primaryKey: true
         },
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.ENUM('Node with Nest.js','IA', 'Java'),
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -23,6 +23,7 @@ Courses.init(
         }
     },{
         sequelize: db,
+        timestamps: true,
         paranoid: true
     }
 )

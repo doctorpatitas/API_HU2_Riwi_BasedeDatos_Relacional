@@ -79,7 +79,9 @@ User.init(
             allowNull: false
         }
     },{
-        sequelize: db
+        sequelize: db,
+        timestamps: true,
+        paranoid: true
     }
 )
 

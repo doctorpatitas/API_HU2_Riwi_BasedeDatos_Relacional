@@ -1,12 +1,7 @@
 import express from 'express';
-import { permissionsPostController } from '../controllers/permissions.controller.js';
-import { permissionsGetController } from '../controllers/permissions.controller.js';
-import { permissionsGetByIdController } from '../controllers/permissions.controller.js';
-import { permissionsPutController } from '../controllers/permissions.controller.js';
-import { permissionsDeleteController } from '../controllers/permissions.controller.js';
-import { handleValidationErrors } from '../validators/uuid.validator.js';
 import { permissionValidator } from '../validators/permissions.validator.js';
-import { validatorParamUUID } from '../validators/uuid.validator.js';
+import { permissionsPostController, permissionsGetController, permissionsGetByIdController, permissionsPutController, permissionsDeleteController } from '../controllers/permissions.controller.js';
+import { validatorParamUUID, handleValidationErrors } from '../validators/uuid.validator.js';
 
 const route = express.Router();
 
@@ -25,4 +20,4 @@ route.put('/:id', validatorParamUUID, handleValidationErrors, permissionsPutCont
 // Eliminar un permiso por medio de su id
 route.delete('/:id', validatorParamUUID, handleValidationErrors, permissionsDeleteController.deletePermissions);
 
-export default route
+export default route;

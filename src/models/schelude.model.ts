@@ -3,7 +3,7 @@ import db from '../config/db.js';
 
 class Schelude extends Model{
     declare id: string;
-    declare name: string;
+    declare shift: 'AM'|'PM';
     declare start_time: string;
     declare end_time: string;
 }
@@ -16,8 +16,8 @@ Schelude.init(
             allowNull: false,
             primaryKey: true
         },
-        name: {
-            type: DataTypes.STRING,
+        shift: {
+            type: DataTypes.ENUM('AM', 'PM'),
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -39,6 +39,7 @@ Schelude.init(
         }
     },{
         sequelize: db,
+        timestamps: true,
         paranoid: true
     }
 )

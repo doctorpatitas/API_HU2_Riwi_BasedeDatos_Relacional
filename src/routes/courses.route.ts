@@ -1,12 +1,7 @@
 import express from 'express';
 import { courseValidator } from '../validators/courses.validator.js';
-import { coursesPostcontroller } from '../controllers/courses.controller.js';
-import { coursesGetController } from '../controllers/courses.controller.js';
-import { coursesGetByIdController } from '../controllers/courses.controller.js';
-import { coursesPutController } from '../controllers/courses.controller.js';
-import { coursesDeleteController } from '../controllers/courses.controller.js';
-import { handleValidationErrors } from '../validators/uuid.validator.js';
-import { validatorParamUUID } from '../validators/uuid.validator.js';
+import { coursesPostcontroller, coursesGetController, coursesGetByIdController, coursesPutController, coursesDeleteController } from '../controllers/courses.controller.js';
+import { validatorParamUUID, handleValidationErrors } from '../validators/uuid.validator.js';
 
 const route = express.Router();
 

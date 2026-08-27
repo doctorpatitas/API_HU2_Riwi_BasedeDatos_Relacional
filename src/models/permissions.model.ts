@@ -21,6 +21,7 @@ Permissions.init(
         }
     },{
         sequelize: db,
+        timestamps: true,
         paranoid: true
     }
 )

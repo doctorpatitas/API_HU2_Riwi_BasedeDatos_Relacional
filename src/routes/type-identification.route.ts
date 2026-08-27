@@ -1,12 +1,7 @@
 import express from 'express';
-import { typeIdPostController } from '../controllers/type-identification.controller.js';
-import { typeIdGetController } from '../controllers/type-identification.controller.js';
-import { typeIdGetByIdController } from '../controllers/type-identification.controller.js';
-import { typeIdPutController } from '../controllers/type-identification.controller.js';
-import { typeIdDeleteController } from '../controllers/type-identification.controller.js';
 import { typeIdValidator } from '../validators/type-identification.validator.js';
-import { validatorParamUUID } from '../validators/uuid.validator.js';
-import { handleValidationErrors } from '../validators/uuid.validator.js';
+import { typeIdPostController, typeIdGetController, typeIdGetByIdController, typeIdPutController, typeIdDeleteController } from '../controllers/type-identification.controller.js';
+import { validatorParamUUID, handleValidationErrors } from '../validators/uuid.validator.js';
 
 const route = express.Router();
 

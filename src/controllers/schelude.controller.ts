@@ -4,10 +4,10 @@ import Schelude from '../models/schelude.model.js';
 // Post
 export const scheludePostController = { createSchelude: async(req: Request, res: Response) => {
     try {
-        const {name, start_time, end_time} = req.body;
+        const {shift, start_time, end_time} = req.body;
 
         const scheludeCreate = await Schelude.create({
-            name, start_time, end_time
+            shift, start_time, end_time
         });
 
         res.status(201).json({message: "The schedule has been successfully created", scheludeCreate});
@@ -56,7 +56,7 @@ export const scheludePutController = { updateSchelude: async(req: Request, res: 
             return res.status(400).json({message: "Invalid id"});
         }
 
-        const {name, start_time, end_time} = req.body;
+        const {shift, start_time, end_time} = req.body;
 
         const updatedSchelude = await Schelude.findByPk(id);
 
@@ -64,7 +64,7 @@ export const scheludePutController = { updateSchelude: async(req: Request, res: 
             return res.status(404).json({message: "Schedule not found"});
         }
 
-        await updatedSchelude.update({name, start_time, end_time});
+        await updatedSchelude.update({shift, start_time, end_time});
 
         res.status(200).json({message: "Schedule updated successfully", updatedSchelude});
     } catch (error) {

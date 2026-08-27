@@ -4,7 +4,7 @@ import db from '../config/db.js';
 class City extends Model{
     declare id: number;
     declare name: string;
-    declare code_name: string;
+    declare code_name: 'BAQ'|'MDE';
 }
 
 City.init(
@@ -23,7 +23,7 @@ City.init(
             }
         },
         code_name: {
-            type: DataTypes.STRING,
+            type: DataTypes.ENUM('BAQ','MDE'),
             allowNull: false,
             unique: true,
             validate: {
@@ -32,6 +32,7 @@ City.init(
         }
     },{
         sequelize: db,
+        timestamps: true,
         paranoid: true
     }
 )

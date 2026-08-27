@@ -1,12 +1,7 @@
 import express from 'express';
-import { cityPostController } from '../controllers/city.controller.js';
 import { cityValidator } from '../validators/city.validator.js';
-import { cityGetController } from '../controllers/city.controller.js';
-import { cityGetByIdController } from '../controllers/city.controller.js';
-import { cityPutController } from '../controllers/city.controller.js';
-import { cityDeleteController } from '../controllers/city.controller.js';
-import { handleValidationErrors } from '../validators/uuid.validator.js';
-import { validatorParamUUID } from '../validators/uuid.validator.js';
+import { cityPostController, cityGetController, cityGetByIdController, cityPutController, cityDeleteController } from '../controllers/city.controller.js';
+import { validatorParamUUID, handleValidationErrors } from '../validators/uuid.validator.js';
 
 const route = express.Router();
 

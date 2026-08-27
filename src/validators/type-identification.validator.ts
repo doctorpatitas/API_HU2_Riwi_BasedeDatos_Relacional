@@ -5,6 +5,5 @@ export const typeIdValidator: ValidationChain[] = [
         .notEmpty().withMessage("The name is required")
         .isString().withMessage("The name should be a text"),
     body('code_name')
-        .notEmpty().withMessage("The code is required")
-        .isString().withMessage("The code_name should be a text")
+        .isIn(['TI','CC','CE','PP','PPT','PEP']).withMessage("The type identification should be TI, CC, CE, PP, PPT or PEP")
 ];

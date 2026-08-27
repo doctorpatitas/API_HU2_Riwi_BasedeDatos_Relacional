@@ -4,7 +4,7 @@ import db from '../config/db.js';
 class TypeIdentification extends Model{
     declare id: string;
     declare name: string;
-    declare code_name: string;
+    declare code_name: 'TI'|'CC'|'CE'|'PP'|'PPT'|'PEP';
 }
 
 TypeIdentification.init(
@@ -23,7 +23,7 @@ TypeIdentification.init(
             }
         },
         code_name: {
-            type: DataTypes.STRING,
+            type: DataTypes.ENUM('TI','CC','CE','PP','PPT','PEP'),
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -31,6 +31,7 @@ TypeIdentification.init(
         }
     },{
         sequelize: db,
+        timestamps: true,
         paranoid: true
     }
 )

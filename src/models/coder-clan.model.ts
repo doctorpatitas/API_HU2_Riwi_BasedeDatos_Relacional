@@ -29,7 +29,9 @@ CoderClan.init(
             allowNull: true
         }
     },{
-        sequelize: db
+        sequelize: db,
+        timestamps: true,
+        paranoid: true
     }
 )
 
