@@ -106,3 +106,4 @@ export const cityDeleteController = { deleteCity: async(req: Request, res: Respo
         res.status(500).json({message: "An unexpected server error has occurred"});
     }
 }}
+

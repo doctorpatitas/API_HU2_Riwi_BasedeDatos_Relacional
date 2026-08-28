@@ -7,6 +7,9 @@ import { seedScheludeAM, seedScheludePM } from './003.schelude.seed.js';
 import { seedTypeIdentificationTI, seedTypeIdentificationCC, seedTypeIdentificationCE, seedTypeIdentificationPP, seedTypeIdentificationPPT, seedTypeIdentificationPEP } from './004.type-identification.seed.js';
 import { seedPermissionsAdmin, seedPermissionsViewer } from './005.permission.seed.js';
 import { seedRolesAdmin, seedRolesTL, seedRolesCoder } from './006.roles.seed.js';
+import { seedIdentificationAdmin } from './007.identification.seed.js';
+import { seedAddressAdmin } from './008.address.seed.js';
+import { seedUserAdmin } from './009.user.seed.js';
 
 async function runSeeders(){
     try {
@@ -35,6 +38,15 @@ async function runSeeders(){
         const ppSeedingTypeId = await seedTypeIdentificationPP();
         const pptSeedingTypeId = await seedTypeIdentificationPPT();
         const pepSeedingTypeId = await seedTypeIdentificationPEP();
+
+        // Admin Identification seeding
+        const adminSeedingIdentification = seedIdentificationAdmin();
+
+        // Admin Address seeding
+        const adminSeedingAddress = await seedAddressAdmin();
+
+        // Admin User seeding
+        const adminSeedingUser = await seedUserAdmin();
 
         // Permissions seeding
         const adminSeedingPermissions = await seedPermissionsAdmin();
