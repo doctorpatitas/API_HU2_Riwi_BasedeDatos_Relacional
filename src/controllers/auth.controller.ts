@@ -70,7 +70,12 @@ export const authController = { register: async(req: Request, res: Response) => 
                 return res.status(401).json({message: "Access denied"});
             }
 
-            const generateNewToken = jwt.sign(userLogin, secretKey, {expiresIn: '24h'});
+            // const generateNewToken = jwt.sign(userLogin, secretKey, {expiresIn: '24h'});
+            const generateNewToken = jwt.sign(
+                {id: userLogin.id, role: userLogin.role_id},
+                process.env.JWT_SECRET as string,
+                {expiresIn: '8h'}
+            );
 
             if(!generateNewToken){
                 return res.status(401).json({message: "Acces denied"});
